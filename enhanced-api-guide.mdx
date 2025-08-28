@@ -1,0 +1,84 @@
+---
+title: API Integration Guide
+description: title: API Integration Guide
+---
+
+```mdx
+---
+title: API Integration Guide
+---
+
+# API Integration Guide
+
+This guide provides developers with instructions on integrating with our REST API.
+
+## 1. Authentication
+
+Before making any API requests, you must authenticate using an API key. Follow these steps:
+
+1. **Register for an Account:** Create an account on our platform.
+2. **Generate an API Key:** Access your dashboard and generate a new API key.
+3. **Include the Key in Your Requests:** Add your API key to the request headers as described in the next section.
+
+## 2. Making API Requests
+
+All API requests should be made to `https://api.example.com`. Always use HTTPS for secure communication.
+
+### 2.1 GET Request Example
+
+This example demonstrates fetching user data using a GET request:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.example.com/users/123
+```
+
+Replace `YOUR_API_KEY` with your actual API key.
+
+:::tip
+Remember to replace `YOUR_API_KEY` with your generated API key.
+:::
+
+## 3. Rate Limiting
+
+To ensure fair usage, the API implements rate limiting:
+
+<Tabs groupId="rate-limits">
+  <TabItem value="free" label="Free Accounts">
+    100 requests per minute
+  </TabItem>
+  <TabItem value="premium" label="Premium Accounts">
+    1000 requests per minute
+  </TabItem>
+</Tabs>
+
+If you exceed the rate limit, you will receive a `429` HTTP status code.
+
+:::warning
+Exceeding the rate limit will result in a 429 error.
+:::
+
+## 4. Error Handling
+
+The API returns standard HTTP status codes to indicate the outcome of requests. Proper error handling is crucial for a robust integration. Here are some common codes:
+
+<Details>
+  <Summary>Common HTTP Status Codes</Summary>
+  <ul>
+    <li>**200 OK:** The request was successful.</li>
+    <li>**401 Unauthorized:** Invalid or missing API key. Check your authentication details.</li>
+    <li>**404 Not Found:** The requested resource could not be found.</li>
+    <li>**429 Too Many Requests:** Rate limit exceeded. Please wait before retrying.</li>
+    <li>**500 Internal Server Error:** An unexpected error occurred on the server.</li>
+  </ul>
+</Details>
+
+
+## 5. Support
+
+For assistance with API integration, please contact our support team at support@example.com.
+
+:::note
+Our support team is available to assist you with any API integration questions.
+:::
+```

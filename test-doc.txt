@@ -1,0 +1,59 @@
+# Getting Started with Kubernetes
+
+Kubernetes is a powerful container orchestration platform that helps you manage containerized applications at scale.
+
+## What is Kubernetes?
+
+Kubernetes, often abbreviated as K8s, is an open-source platform designed to automate deploying, scaling, and operating application containers.
+
+### Key Benefits
+
+- **Scalability**: Automatically scale your applications up or down
+- **High Availability**: Ensure your applications are always running
+- **Resource Optimization**: Efficiently use your infrastructure
+
+## Basic Concepts
+
+### Pods
+A Pod is the smallest deployable unit in Kubernetes. It represents a single instance of a running process in your cluster.
+
+### Services
+Services provide a stable network endpoint for your Pods, even as they come and go.
+
+### Deployments
+Deployments manage the desired state of your application, handling updates and rollbacks.
+
+## Example Configuration
+
+Here's a simple deployment configuration:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+## Next Steps
+
+1. Install kubectl command-line tool
+2. Set up a local cluster with minikube
+3. Deploy your first application
+4. Learn about advanced features like Ingress and ConfigMaps
+
+For more information, visit the official Kubernetes documentation.

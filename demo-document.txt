@@ -1,0 +1,50 @@
+# API Integration Guide
+
+This guide covers how to integrate with our REST API for developers.
+
+## Authentication
+
+Before making requests, you need to authenticate using an API key.
+
+Steps to get started:
+1. Register for an account
+2. Generate an API key from the dashboard  
+3. Include the key in your requests
+
+## Making Requests
+
+All API requests should be made to https://api.example.com
+
+### GET Request Example
+
+To fetch user data:
+
+```
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.example.com/users/123
+```
+
+Important: Always use HTTPS for security.
+
+## Rate Limiting
+
+The API has rate limits:
+- 100 requests per minute for free accounts
+- 1000 requests per minute for premium accounts
+
+If you exceed the limit, you'll receive a 429 status code.
+
+## Error Handling
+
+Common HTTP status codes:
+- 200: Success
+- 401: Unauthorized (check your API key)
+- 404: Resource not found
+- 429: Rate limit exceeded
+- 500: Server error
+
+Make sure to handle these errors gracefully in your application.
+
+## Support
+
+If you need help, contact our support team at support@example.com
